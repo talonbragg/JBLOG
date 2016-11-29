@@ -10,7 +10,7 @@ form {
     display: inline-block;
     height:20px;
 	width:70px;
-	background-color:#cc0000;
+	background-color:tomato;
 	font-family:arial;
 	font-weight:bold;
 	color:#ffffff;
@@ -25,4 +25,5 @@ form {
 }
 body {
 	font-family: Arial;
+	text-align: center;
 }
