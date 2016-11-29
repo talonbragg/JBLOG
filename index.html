@@ -16,11 +16,13 @@
 		});
 		</script>
 		<script>
-			var list = document.getElementById('textbox');
-				function save(){
-					var text_to_save = document.querySelector('ol').value;
-					localStorage.setItem("text", text_to_save); // save the item
-				}
+			var container = document.querySelector('ol').value;
+      			var save = document.getElementById('button2');
+
+      			save.onclick = function() {
+      				save.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(container.value);
+      				save.download = 'export.txt';
+			};
 		</script>
 	</head>
 	<body>
