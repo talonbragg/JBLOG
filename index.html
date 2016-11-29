@@ -12,16 +12,26 @@
     				$(document).on('click', '.item', function(){
         			$(this).remove();    
     			});
+				
 		});
+		</script>
+		<script>
+			var list = document.getElementById('textbox');
+				function save(){
+					var text_to_save = document.querySelector('ol').value;
+					localStorage.setItem("text", text_to_save); // save the item
+				}
 		</script>
 	</head>
 	<body>
 			<h2>To Do</h2>
 		<form name="checkListForm">
-			<input type="text" name="checkListItem"/>
+			<input type="text" name="checkListItem" id="textbox"/>
 		</form>
-		<div id="button">Add!</div>
+		<div id="button">Add!</div><div id="button2">SAVE</div>
 		<br/>
+		<ol>
 		<div class="list"></div>
+		</ol>
 	</body>
 </html>
