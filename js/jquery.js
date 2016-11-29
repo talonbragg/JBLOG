@@ -1,7 +1,7 @@
 <!-- Number One -->
 $(document).ready(function() {
   $('#title1Click').click(function() {
-    $('#').animate({
+    $('#slidetitle').animate({
       textAlign:'center',
       fontSize:'3em'
     });
