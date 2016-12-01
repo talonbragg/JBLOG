@@ -14,23 +14,46 @@
     			});
 				
 		});
-		</script>
-		<script>
-			var container = document.querySelector('ol').value;
-      			var save = document.getElementById('button2');
-
-      			save.onclick = function() {
-      				save.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(container.value);
-      				save.download = 'export.txt';
+			var doc = new jsPDF();
+			var specialElementHandlers = {
+    			'#editor': function (element, renderer) {
+        		return true;
+   			 }
 			};
+
+			$('#cmd').click(function () {
+    			doc.fromHTML($('#content').html(), 15, 15, {
+        		'width': 170,
+            		'elementHandlers': specialElementHandlers
+    			});
+    			doc.save('sample-file.pdf');
+			});
+		</script>
+		
+		<script>
+			var doc = new jsPDF();
+			var specialElementHandlers = {
+    			'#editor': function (element, renderer) {
+        		return true;
+   			 }
+			};
+
+			$('#cmd').click(function () {
+    			doc.fromHTML($('#content').html(), 15, 15, {
+        		'width': 170,
+            		'elementHandlers': specialElementHandlers
+    			});
+    			doc.save('yourtodolist.pdf');
+			});
 		</script>
 	</head>
 	<body>
 			<h2>To Do</h2>
 		<form name="checkListForm">
-			<input type="text" name="checkListItem" id="textbox"/>
+		<input type="text" name="checkListItem" id="content"/>
 		</form>
-		<div id="button">Add!</div><div id="button2" >SAVE</div>
+		<div id="editor"></div>
+		<div id="button">Add!</div><div id="#cmd" >SAVE</div>
 		<br/>
 		<ol>
 		<div class="list"></div>
